@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --r: 500px;
+      }
+      .content-box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+      .clock {
+        width: var(--r);
+        height: var(--r);
+        border: 10px solid black;
+        border-radius: 50%;
+        position: relative;
+      }
+      .second-hand {
+        position: absolute;
+        height: 200px;
+        width: 5px;
+        left: 50%;
+        bottom: 50%;
+        background-color: black;
+        transform-origin: bottom center;
+      }
+      .successive {
+        animation: second-hand-rotate 60s linear infinite;
+      }
+      .step-by-step {
+        animation: second-hand-rotate 60s steps(60) infinite;
+      }
+      @keyframes second-hand-rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-box">
+      <div class="clock">
+        <div class="second-hand successive"></div>
+      </div>
+      <div class="clock">
+        <div class="second-hand step-by-step"></div>
+      </div>
+    </div>
+  </body>
+</html>
